@@ -9,12 +9,20 @@ import Header from "./Header.jsx";
     class="absolute h-full w-full object-cover"
     alt="Carrito Abilu Ilustración"
   />
+  <div class="absolute inset-0 bg-black bg-opacity-50 z-0 md:hidden"></div>
   <div
-    class="fixed inset-0 z-10 flex justify-end mt-[30%] md:items-stretch md:mt-[10%] md:justify-around md:mr-[-30%]"
+    class="fixed inset-0 z-10 flex justify-end md:items-stretch md:mt-[10%] md:justify-around md:mr-[-30%]"
   >
     <div class="w-full md:max-w-[450px] px-4 md:px-0">
+      <div class="flex justify-center items-center md:hidden">
+        <img
+          class="mt-[10%] h-[30rem] object-cover invert md:hidden"
+          src="./logo.png"
+          alt="Logo"
+        />
+      </div>
       <div
-        class="relative p-6 bg-white shadow-xl rounded-lg text-lg text-gray-800 md:mr-1/2"
+        class="relative p-6 bg-white bg-opacity-90 backdrop-blur shadow-2xl rounded-lg text-lg text-gray-800 md:mr-1/2"
       >
         <p class="mb-4 text-justify">
           Descubre Carrito Abilu, tu destino gastronómico para saborear lo
@@ -25,7 +33,13 @@ import Header from "./Header.jsx";
         <button
           class="absolute left-0 right-0 w-[200px] block m-auto bg-[#68afc4] hover:bg-[#68afc4] text-white font-bold py-2 px-4 rounded-xl"
         >
-          Ubicación
+          <a
+            href="https://maps.app.goo.gl/7VFFitJdzjDQzLC28"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ubicación
+          </a>
         </button>
       </div>
     </div>
