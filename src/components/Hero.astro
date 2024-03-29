@@ -1,0 +1,33 @@
+---
+import Header from "./Header.jsx";
+---
+
+<section class="relative h-screen w-full">
+  <Header client:load />
+  <img
+    src="/carrito_abilu.webp"
+    class="absolute h-full w-full object-cover"
+    alt="Carrito Abilu Ilustración"
+  />
+  <div
+    class="fixed inset-0 z-10 flex justify-end mt-[30%] md:items-stretch md:mt-[10%] md:justify-around md:mr-[-30%]"
+  >
+    <div class="w-full md:max-w-[450px] px-4 md:px-0">
+      <div
+        class="relative p-6 bg-white shadow-xl rounded-lg text-lg text-gray-800 md:mr-1/2"
+      >
+        <p class="mb-4 text-justify">
+          Descubre Carrito Abilu, tu destino gastronómico para saborear lo
+          auténtico de sándwiches de lomito, hamburguesas, mollejas, milanesas y
+          pizzas. Desde 2022, entregamos pasión y calidad en cada plato,
+          ofreciendo experiencias inolvidables en un ambiente cálido y familiar.
+        </p>
+        <button
+          class="absolute left-0 right-0 w-[200px] block m-auto bg-[#68afc4] hover:bg-[#68afc4] text-white font-bold py-2 px-4 rounded-xl"
+        >
+          Ubicación
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
