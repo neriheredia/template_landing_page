@@ -1,8 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toggleMenu } from "../menuStore.js";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
+  let lastScrollY = window.scrollY;
+  const width = window.innerWidth;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (width < 768) {
+        if (currentScrollY > lastScrollY) {
+          setShowHeader(false);
+        } else {
+          setShowHeader(true);
+        }
+      } else {
+        setShowHeader(true);
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -10,7 +35,9 @@ export default function Header() {
 
   return (
     <header
-      className="fixed top-6 left-1/2 mx-auto px-4 max-w-7xl w-full bg-[#68afc4] z-30 transform -translate-x-1/2"
+      className={`fixed top-0 md:top-3 left-1/2 mx-auto px-4 max-w-7xl w-full bg-[#68afc4] z-30 transform -translate-x-1/2 ${
+        showHeader ? "" : "-translate-y-full"
+      }`}
       style={{ "max-width": "1250px" }}
     >
       <div className="flex justify-between items-center py-3">
@@ -66,13 +93,20 @@ export default function Header() {
           isOpen ? "flex" : "hidden"
         } flex-col md:hidden bg-[#68afc4] pb-3`}
       >
-        <a href="#" className="text-white hover:text-[#a23f49] font-bold py-2">
+        <a
+          href="#"
+          className="text-white hover:text-[#a23f49] font-bold py-2"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           NOSOTROS
         </a>
         <a
           href="#"
           className="text-white hover:text-[#a23f49] font-bold py-2"
-          onClick={toggleMenu}
+          onClick={() => {
+            setIsOpen(!isOpen);
+            toggleMenu();
+          }}
         >
           MENU
         </a>
@@ -81,10 +115,15 @@ export default function Header() {
           className="text-white hover:text-[#a23f49] font-bold py-2"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => setIsOpen(!isOpen)}
         >
           UBICACION
         </a>
-        <a href="#" className="text-white hover:text-[#a23f49] font-bold py-2">
+        <a
+          href="#"
+          className="text-white hover:text-[#a23f49] font-bold py-2"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           CONTACTO
         </a>
       </div>

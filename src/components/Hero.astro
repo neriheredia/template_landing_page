@@ -2,16 +2,16 @@
 import Header from "./Header.jsx";
 ---
 
-<section class="relative h-screen w-full">
-  <Header client:load />
+<section class="relative h-screen md:h-[800px] w-full">
+  <Header client:only />
   <img
     src="/carrito_abilu.webp"
-    class="absolute h-full w-full object-cover"
+    class="absolute h-screen md:h-[800px] w-full object-cover"
     alt="Carrito Abilu Ilustración"
   />
   <div class="absolute inset-0 bg-black bg-opacity-50 z-0 md:hidden"></div>
   <div
-    class="fixed inset-0 z-10 flex justify-end md:items-stretch md:mt-[10%] md:justify-around md:mr-[-30%]"
+    class="relative inset-0 z-10 flex justify-end md:items-stretch md:pt-[10%] md:justify-around md:mr-[-30%]"
   >
     <div class="w-full md:max-w-[450px] px-4 md:px-0">
       <div class="flex justify-center items-center md:hidden">
@@ -24,6 +24,11 @@ import Header from "./Header.jsx";
       <div
         class="relative p-6 bg-white bg-opacity-90 backdrop-blur shadow-2xl rounded-lg text-lg text-gray-800 md:mr-1/2"
       >
+        <h4
+          class="text-center uppercase text-[#478598] font-extrabold text-2xl mb-2"
+        >
+          Nuestra Historia
+        </h4>
         <p class="mb-4 text-justify">
           Descubre Carrito Abilu, tu destino gastronómico para saborear lo
           auténtico de sándwiches de lomito, hamburguesas, mollejas, milanesas y

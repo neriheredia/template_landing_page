@@ -1,13 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.jsx";
+import Contact from "../components/Contact.astro";
 import Hero from "../components/Hero.astro";
 import SidebarMenu from "../components/SidebarMenu";
+import Divisor from "../components/Divisor.astro";
+import About from "../components/About.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    <Hero />
     <SidebarMenu client:load />
+    <Contact />
+    <Hero />
+    <Divisor />
+    <About />
   </main>
 </Layout>
